@@ -1,0 +1,218 @@
+body{
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #d6d6d6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5em 7em;
+    background: #fcf5eb;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    align-items: center; /* Alinea verticalmente los elementos al centro */
+}
+
+.avatar {
+    width: 40px; /* Tamaño del avatar */
+    height: 40px; /* Tamaño del avatar */
+    border-radius: 50%; /* Hace el avatar circular */
+    object-fit: cover; /* Mantiene la imagen dentro del contenedor sin distorsión */
+}
+
+.ui-autocomplete {
+    z-index: 1060 !important; /* Ajusta este valor para que sea superior al modal */
+}
+
+#proveedor_autocomplete_modal {
+    position: relative;
+    z-index: 1050; /* Asegura que el autocompletado esté por encima del modal */
+}
+
+main{
+    width: 100vw;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background: #ececec;
+    box-sizing: border-box;
+}
+
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul a{
+    background: #ececec;
+    display: block;
+    padding: 7px 15px;
+    border-radius: 3px;
+    color: black;
+    text-decoration: none;
+}
+
+nav ul a:hover{
+    background: #fcdda3;
+    text-decoration: none !important;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: #333; /* Color del texto del menú */
+    font-weight: bold; /* Opcional: estilo del texto */
+}
+
+.nav ul li a:hover{
+    text-decoration: none;
+}
+.view_p{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.view_p th{
+    padding: 5px 25px;
+    background: #fcdda3;
+    justify-content: center;
+}
+
+.view_p td{
+    padding: 5px 25px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td{
+    padding: 6px 10px;
+}
+
+table th{
+    background: #fcdda3;
+    text-align: left;
+}
+
+table tbody tr:nth-child(odd) td{
+    background: white;
+}
+
+table td a{
+    text-decoration: none;
+    color: black;
+}
+
+/* Estilos para las filas */
+.fila-compra {
+    color: red !important;
+}
+
+.fila-pago {
+    color: green !important;
+}
+
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5px;
+}
+
+.header a{
+    display: block;
+    text-decoration: none;
+    background: #fcdda3;
+    padding: 7px 20px;
+    border-radius: 3px;
+    border: 2px solid #ffb223;
+}
+
+.header a:hover{
+    text-decoration: none;
+}
+
+form > div{
+    display: flex;
+    margin-bottom: 10px;
+    gap: 7px;
+}
+
+form > div > label{
+    width: 120px;
+}
+
+form > div > label + *{
+    width: 450px;
+    padding: 5px 10px;
+    border: 1px solid #ffb223;
+}
+
+.btn{
+    background-color: #ffaf38 !important;
+    border: none !important;
+    color: #333 !important;
+}
+
+.btn:hover{
+    background-color: #fceeda !important;
+}
+
+.dropdown-toggle{
+    background-color: transparent !important;
+}
+
+.dropdown-toggle:hover{
+    background-color: transparent !important;
+}
+
+.abtn{
+    text-decoration: none;
+    color: black;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.cancelbtn{
+    background-color: transparent;
+    border: #ffaf38;
+}
+
+.dropdown-menu li{
+    padding-left: 5px;
+}
+
+.footer{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 15px;
+    margin-top: auto;
+}
+
+.alto{
+    min-height: 40vh;
+    align-items: center;
+}
+
+ul.dropdown-menu li:hover{
+    background-color: #d6d6d6;
+}
+
