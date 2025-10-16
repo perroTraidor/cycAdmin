@@ -31,7 +31,7 @@ class AuthController {
                 exit;
             }
         } else {
-            return ['view' => 'login.php'];
+            return ['view' => '/login.php'];
         }
     }
 

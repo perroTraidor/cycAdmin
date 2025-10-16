@@ -15,7 +15,7 @@
 <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="row">
             <div class="col text-center">
-                <img src="/assets/img/logo.png" class="rounded" style="height: 70px; margin-bottom: 5%;" alt="">
+                <img src="<?= BASE_URL ?>/assets/img/logo.png" class="rounded" style="height: 70px; margin-bottom: 5%;" alt="">
                 <form action="/index.php?entidad=auth&accion=login" method="post">
                 <div class="form-floating mb-3 mt-5 text-center" style="margin: 0 auto;" >
                 <input type="text" class="form-control-sm" id="username" name="username" placeholder="Usuario" style="border-radius: 10px;">

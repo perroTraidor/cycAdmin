@@ -17,7 +17,7 @@ if ($isLocal) {
     // Detectar automáticamente la carpeta del proyecto
     $scriptName = $_SERVER['SCRIPT_NAME'];
     $baseDir = dirname($scriptName);
-    define('BASE_URL', 'http://' . $_SERVER['HTTP_HOST'] . $baseDir);
+    //define('BASE_URL', 'http://' . $_SERVER['HTTP_HOST'] . $baseDir);
     
 } else {
     // ========== PRODUCCIÓN (SERVIDOR) ==========
@@ -33,7 +33,7 @@ if ($isLocal) {
 
 // Constantes comunes
 define('DB_CHARSET', 'utf8mb4');
-define('ROOT_DIR', realpath(__DIR__ . '/../') . DIRECTORY_SEPARATOR);
+//define('ROOT_DIR', realpath(__DIR__ . '/../') . DIRECTORY_SEPARATOR);
 
 // Configuración de errores según entorno
 if (ENV === 'dev') {

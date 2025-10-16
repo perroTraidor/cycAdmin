@@ -10,8 +10,8 @@ class UserModel {
     private $pdo;
 
     public function connect( ){
-        $server = 'mysql:host='.DBHOST.';dbname='.DBNAME.';charset='.DBCHARSET;
-        $this->pdo = new PDO( $server, DBUSER, DBPASS);
+        $server = 'mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset='.DB_CHARSET;
+        $this->pdo = new PDO( $server, DB_USER, DB_PASS);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Asegúrate de capturar errores en PDO
     }
 

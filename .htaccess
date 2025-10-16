@@ -1,12 +1,9 @@
 # Habilitar RewriteEngine
 RewriteEngine On
+RewriteBase /cycAdmin/
 
 # NO usar RewriteBase hardcodeado - se detecta automáticamente
 # RewriteBase se omite para que funcione en cualquier carpeta
-
-# Permitir archivos y directorios reales
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
 
 # Ruta para login
 RewriteRule ^login/?$ index.php?entidad=auth&accion=login [NC,QSA,L]
@@ -31,6 +28,11 @@ RewriteRule ^([a-z\-_]+)/([a-z\-_]+)/?$ index.php?entidad=$1&accion=$2 [NC,QSA,L
 
 # Ruta simple: entidad
 RewriteRule ^([a-z\-_]+)/?$ index.php?entidad=$1 [NC,QSA,L]
+
+# Permitir archivos y directorios reales
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
 
 # Proteger archivos sensibles
 <FilesMatch "^\.">

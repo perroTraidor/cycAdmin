@@ -1,4 +1,12 @@
 <?php
+
+// Definir constantes de rutas
+define('ROOT_DIR', __DIR__ . '/');
+define('SRC_DIR', ROOT_DIR . 'src/');
+define('LIBS_DIR', ROOT_DIR . 'libs/');
+define('CONFIG_DIR', ROOT_DIR . 'config/');
+define('BASE_URL', '/cycAdmin/');
+
 // Cargar configuración principal (solo UNA vez)
 require_once __DIR__ . '/config/config.php';
 
