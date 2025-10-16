@@ -1,4 +1,4 @@
-# gestion-compras
+# Gestion CyC
 Gestion de compras y pagos
 
 ## Proveedores
@@ -21,3 +21,4 @@ Listar OC
 Editar OC
 Agregar OC
 Borrar OC
+
