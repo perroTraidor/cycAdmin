@@ -5,7 +5,7 @@ use App\models\UserModel;
 
 class DashboardController {
     public static function dashboard() {
-        return ['view' => 'dashboard.php'];
+        return ['view' => '/src/views/dashboard.php'];
     }
 
     public static function comprasdash() {

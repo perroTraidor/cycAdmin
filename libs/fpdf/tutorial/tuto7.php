@@ -1,5 +1,5 @@
 <?php
-require('../fpdf.php');
+//require('../fpdf.php');
 
 $pdf = new FPDF();
 $pdf->AddFont('CevicheOne','','CevicheOne-Regular.php','.');

@@ -1,5 +1,4 @@
 RewriteEngine On
-
 # Ruta para login
 RewriteRule ^login$ index.php?entidad=auth&accion=login [NC]
 
@@ -15,3 +14,15 @@ RewriteRule ^([a-z\-_]+)/create$ index.php?entidad=$1&accion=create [NC]
 RewriteRule ^([a-z\-_]+)/([a-z\-_]+)$ index.php?entidad=$1&accion=$2 [NC]
 RewriteRule ^([a-z\-_]+)/([0-9]+)$ index.php?entidad=$1&id=$2&accion=view [NC]
 RewriteRule ^([a-z\-_]+)/([0-9]+)/(edit|delete|view|list)$ index.php?entidad=$1&id=$2&accion=$3 [NC]
+
+# Acá comienza lo agregado por GPT
+
+RewriteBase /cycAdmin/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Hasta acá lo agregado por GPT
+

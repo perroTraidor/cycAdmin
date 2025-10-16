@@ -5,7 +5,7 @@ use FPDF;
 use App\Controllers\ProveedoresController;
 use App\models\ChequesModel;
 
-include('libs/fpdf/fpdf.php');
+//include('libs/fpdf/fpdf.php');
 
 class PdfController {
     public static function create() {
