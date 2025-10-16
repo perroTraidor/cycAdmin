@@ -1,69 +1,87 @@
 <?php
-
-// Acá comienza lo agregado con GPT
+// Cargar configuración principal (solo UNA vez)
 require_once __DIR__ . '/config/config.php';
 
-// Mostrar errores sólo en desarrollo
-if (ENV === 'dev') {
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
-} else {
-    ini_set('display_errors', 0);
+// Cargar configuración de utilidades (define VIEWS, MODELS, CONTROLLERS, etc.)
+require_once ROOT_DIR . 'src/utils/config.php';
+
+// Cargar bootstrap si existe
+if (file_exists(ROOT_DIR . 'src/bootstrap.php')) {
+    require_once ROOT_DIR . 'src/bootstrap.php';
 }
 
-require_once ROOT_DIR . 'src/bootstrap.php';
+// Cargar autoload (DESPUÉS de tener las constantes definidas)
+require_once ROOT_DIR . 'src/utils/autoload.php';
 
-// Luego continúa con el router o lo que tengas actualmente.
-// Hasta acá está lo agregado con GPT
-
-include('src/utils/config.php');
-include('src/utils/autoload.php');
-
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
+// Obtener parámetros de la URL
 $entidad = $_GET['entidad'] ?? 'proveedores';
 $entidad = ucfirst(strtolower($entidad));
 $accion = $_GET['accion'] ?? 'list';
-
-$clase = 'App\\Controllers\\'.$entidad.'Controller';
-
-if( !class_exists( $clase )) {
-    die('No existe la clase ' . $clase);
-}
-
-if( !method_exists($clase, $accion)) {
-    die('No existe el método ' . $accion);
-}
-
-// Capturar el parámetro id si está presente en la URL
 $id = $_GET['id'] ?? null;
 
-// Llamar al método con o sin parámetros, dependiendo de si el id está presente
+// Construir el nombre de la clase del controlador
+$clase = 'App\\Controllers\\' . $entidad . 'Controller';
+
+// Validar que la clase existe
+if (!class_exists($clase)) {
+    if (ENV === 'dev') {
+        die('Error: No existe la clase ' . $clase);
+    } else {
+        http_response_code(404);
+        die('Página no encontrada');
+    }
+}
+
+// Validar que el método existe
+if (!method_exists($clase, $accion)) {
+    if (ENV === 'dev') {
+        die('Error: No existe el método ' . $accion . ' en ' . $clase);
+    } else {
+        http_response_code(404);
+        die('Página no encontrada');
+    }
+}
+
+// Llamar al método del controlador con o sin ID
 if ($id) {
-    // Si hay un id en la URL, pasar el id como parámetro al método
     $respuesta = $clase::$accion($id);
 } else {
-    // Si no hay id, llamar al método sin parámetros
     $respuesta = $clase::$accion();
 }
-ob_start();
-// Procesar la vista
-$archivo = $respuesta['view'];
 
-if ($archivo !== 'login.php') {
-    include(VIEWS . '/inc/header.php');
+// Iniciar buffer de salida
+ob_start();
+
+// Obtener el archivo de vista
+$archivo = $respuesta['view'] ?? 'error.php';
+
+// Incluir header si no es login
+if ($archivo !== 'login.php' && $archivo !== '/login.php') {
+    include(ROOT_DIR . 'src/views/inc/header.php');
 }
 
-// Extraer variables de la respuesta para hacerlas disponibles en la vista
+// Extraer variables de la respuesta para la vista
 if (isset($respuesta['respuesta'])) {
     extract($respuesta['respuesta']);
 }
 
-include(VIEWS . '/' . $archivo);
-
-if ($archivo !== 'login.php') {
-    include(VIEWS . '/inc/footer.php');
+// Incluir la vista principal
+$vistaPath = ROOT_DIR . 'src/views' . $archivo;
+if (file_exists($vistaPath)) {
+    include($vistaPath);
+} else {
+    if (ENV === 'dev') {
+        die('Error: No se encuentra la vista ' . $vistaPath);
+    } else {
+        die('Error al cargar la página');
+    }
 }
+
+// Incluir footer si no es login
+if ($archivo !== 'login.php' && $archivo !== '/login.php') {
+    include(ROOT_DIR . 'src/views/inc/footer.php');
+}
+
+// Enviar el buffer
 ob_end_flush();
 ?>
