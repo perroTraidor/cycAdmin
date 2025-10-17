@@ -94,10 +94,10 @@
 
 
 <!-- Modal Cheques/Echeqs -->
-<?php include('nuevaOp/modalChequesEcheqs.php' ) ?>
+<?php include(VIEWS.'/compras/modales/nuevaOp/modalChequesEcheqs.php' ) ?>
 
 
 <!-- Modal para seleccionar las facturas -->
-<?php include('nuevaOp/modalFacturas.php' ) ?>
+<?php include(VIEWS.'/compras/modales/nuevaOp/modalFacturas.php' ) ?>
 
-<script src="/assets/js/opScripts.js"></script>
+<script src="<?= BASE_URL ?>assets/js/opScripts.js"></script>
