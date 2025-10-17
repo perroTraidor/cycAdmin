@@ -14,6 +14,6 @@ spl_autoload_register(function ($class) {
 });
 
 // Incluir librerías externas
-if (file_exists(ROOT_DIR . 'libs/fpdf/fpdf.php')) {
-    require_once ROOT_DIR . 'libs/fpdf/fpdf.php';
-}
+//if (file_exists(LIBS_DIR. 'fpdf/fpdf.php')) {
+//    require_once LIBS_DIR. 'fpdf/fpdf.php';
+//}

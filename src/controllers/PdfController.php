@@ -5,7 +5,7 @@ use FPDF;
 use App\Controllers\ProveedoresController;
 use App\models\ChequesModel;
 
-//include('libs/fpdf/fpdf.php');
+include(LIBS_DIR.'fpdf/fpdf.php');
 
 class PdfController {
     public static function create() {
@@ -39,7 +39,7 @@ class PdfController {
 
         ob_start();  // Inicia el buffer para evitar cualquier salida previa
         # Logo de la empresa formato png #
-        $pdf->Image('assets/img/logo.png',15,12,45,28,'PNG');
+        $pdf->Image(ROOT_DIR.'assets/img/logo.png',15,12,45,28,'PNG');
 
         // Obtener los datos de la OP del formulario
         $numero = $_POST['datosOrden']['numero'];

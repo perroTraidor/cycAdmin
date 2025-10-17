@@ -48,5 +48,5 @@ $proveedor = $respuesta['respuesta']['nombre_proveedor'];
 </div>
 </div>
 
-<?php include('src/views/compras/modales/modalVerOp.php') ?>
-<?php include('src/views/compras/modales/modalVerCompra.php') ?>
+<?php include(VIEWS.'/compras/modales/modalVerOp.php') ?>
+<?php include(VIEWS.'/compras/modales/modalVerCompra.php') ?>

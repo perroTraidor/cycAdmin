@@ -10,7 +10,7 @@ class ProveedoresController{
         $proveedor = new ProveedoresModel( );
         $listado = $proveedor->all( );
         return [
-            'view' => 'proveedores/list.php',
+            'view' => '/proveedores/list.php',
             'proveedores' => $listado
         ];
     }

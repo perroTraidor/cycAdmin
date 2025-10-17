@@ -87,27 +87,27 @@
 
         
 <!-- Modal nueva compra-->
-<?php include('src/views/compras/modales/modalNuevaCompra.php'); ?>
+<?php include(VIEWS.'/compras/modales/modalNuevaCompra.php'); ?>
 
 <!-- Modal fecha resumen de cuenta-->
-<?php include('src/views/compras/modales/modalResumen.php'); ?>
+<?php include(VIEWS.'/compras/modales/modalResumen.php'); ?>
 
 
 <!-- Modal cargar proveedor -->
-<?php include('src/views/compras/modales/modalCargarProveedor.php'); ?>
+<?php include(VIEWS.'/compras/modales/modalCargarProveedor.php'); ?>
 
 
 <!-- Modal buscar proveedor -->
-<?php include('src/views/compras/modales/modalBuscarProveedor.php'); ?>
+<?php include(VIEWS.'/compras/modales/modalBuscarProveedor.php'); ?>
 
 <!-- Modal resumen por ID -->
-<?php include('src/views/compras/modales/modalResumenId.php'); ?>
+<?php include(VIEWS.'/compras/modales/modalResumenId.php'); ?>
 
 <!-- Modal editar proveedor -->
-<?php include('src/views/compras/modales/modalEditarProveedor.php'); ?>
+<?php include(VIEWS.'/compras/modales/modalEditarProveedor.php'); ?>
 
 <!-- Modal nueva OP -->
-<?php include('src/views/compras/modales/modalNuevaOp.php'); ?>
+<?php include(VIEWS.'/compras/modales/modalNuevaOp.php'); ?>
         
     </div>
     </div>    

@@ -17,7 +17,7 @@ class ComprasController{
         $cuenta = new ComprasModel( );
         $listado = $cuenta->all( $id );
         return [
-            'view' => 'compras/list.php',
+            'view' => '/compras/list.php',
             'cuenta' => $listado
         ];
     }
@@ -105,7 +105,7 @@ foreach ($movimientos as $key => $mov) {
                 $saldo_f = $s_f->formatearImporte($saldoFinal);
 
             return [
-                'view' => 'compras/resumen_cuenta.php',
+                'view' => '/compras/resumen_cuenta.php',
                 'respuesta' => [
                     'saldo_inicial' => $saldo_i,
                     'movimientos' => $movimientos,
