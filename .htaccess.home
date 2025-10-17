@@ -1,0 +1,53 @@
+# Habilitar RewriteEngine
+RewriteEngine On
+RewriteBase /cycAdmin/
+
+# NO usar RewriteBase hardcodeado - se detecta automáticamente
+# RewriteBase se omite para que funcione en cualquier carpeta
+
+# Ruta para login
+RewriteRule ^login/?$ index.php?entidad=auth&accion=login [NC,QSA,L]
+
+# Ruta para logout
+RewriteRule ^logout/?$ index.php?entidad=auth&accion=logout [NC,QSA,L]
+
+# Ruta para dashboard
+RewriteRule ^dashboard/?$ index.php?entidad=dashboard&accion=dashboard [NC,QSA,L]
+
+# Rutas con ID y acción específica: entidad/123/edit
+RewriteRule ^([a-z\-_]+)/([0-9]+)/(edit|delete|view|list)/?$ index.php?entidad=$1&id=$2&accion=$3 [NC,QSA,L]
+
+# Rutas con ID: entidad/123
+RewriteRule ^([a-z\-_]+)/([0-9]+)/?$ index.php?entidad=$1&id=$2&accion=view [NC,QSA,L]
+
+# Rutas con acción: entidad/create
+RewriteRule ^([a-z\-_]+)/create/?$ index.php?entidad=$1&accion=create [NC,QSA,L]
+
+# Rutas con dos palabras: entidad/accion
+RewriteRule ^([a-z\-_]+)/([a-z\-_]+)/?$ index.php?entidad=$1&accion=$2 [NC,QSA,L]
+
+# Ruta simple: entidad
+RewriteRule ^([a-z\-_]+)/?$ index.php?entidad=$1 [NC,QSA,L]
+
+# Permitir archivos y directorios reales
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Proteger archivos sensibles
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "(config\.php|\.env)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Configuración de seguridad
+Options -Indexes
+ServerSignature Off
+
+# Tipos MIME
+AddDefaultCharset UTF-8
